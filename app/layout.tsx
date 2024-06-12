@@ -8,7 +8,7 @@ import { ThemeProvider } from "next-themes";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AW Portfolio",
+  title: "Aftab Wasih",
   description: "Showcase of aftab projects",
  
 };
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      <link rel="icon" href="/favicon.ico" sizes="any" />
+      <link rel="icon" href="./favicon.ico" sizes="any" />
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class">
