@@ -1,33 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --blue-rgb: 237 245 255;
+  --green-rgb: 125 161 35;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: "Work Sans", sans-serif;
+}
+
+body:has(.card[data-color="blue"]:hover) {
+  background-color: rgb(var(--blue-rgb) / 25%);
+}
+
+body:has(.card[data-color="green"]:hover) {
+  background-color: rgb(var(--green-rgb) / 25%);
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  main{
+    @apply dark:bg-slate-900/50
   }
+  .font-poppins {
+    font-family: "Poppins", sans-serif;
+  }
+
+  .clip-polygon {
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 88%,
+      67% 88%,
+      67% 100%,
+      41% 87%,
+      0 86%
+    );
+  }
+  .disable-selection {
+    -webkit-touch-callout: none; /* Disable iOS touch callout */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+  }
+  .green-gra {
+    @apply text-transparent bg-clip-text  bg-gradient-to-b from-gray-600 to-green-600;
+  }
+  .shadow-card {
+    box-shadow: 0 2px 4px rgba(134, 64, 64, 0.1);
+  }
+  .max-container {
+    @apply  pt-24  sm:min-h-screen sm:min-h-[100dvh] max-w-[98vw] lg:max-w-[95vw] mx-auto;
+  }
+
+  .head-text {
+    @apply sm:text-5xl text-3xl font-semibold sm:leading-snug font-poppins;
+  }
+
+  .subhead-text {
+    @apply font-semibold sm:text-3xl text-xl relative font-poppins;
+  }
+
+  .input {
+    @apply bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2.5 font-normal shadow-card;
+  }
+
+  .textarea {
+    @apply block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-200 focus:ring-blue-500 focus:border-blue-500 mt-2.5 font-normal shadow-card;
+  }
+
+  .btn {
+    @apply text-white bg-gradient-to-br from-[#27db54] via-[#13d460] to-[#01ee5c]  focus:outline-none rounded-md  sm:w-auto text-center;
+  }
+
+  .header {
+    @apply flex justify-between items-center sm:px-16 px-8 py-4 max-w-5xl mx-auto absolute top-0 bg-transparent z-10 right-0 left-0;
+  }
+
+  .footer {
+    @apply max-w-5xl mx-auto sm:px-16 pb-6 px-8 flex flex-col gap-7;
+  }
+
+  .footer-container {
+    @apply flex flex-wrap gap-7 items-center justify-between;
+  }
+
+  .info-box {
+    @apply mx-5 relative flex text-white flex-col gap-3 max-w-2xl neo-brutalism-green pt-4 pb-12 px-8;
+  }
+
+  .neo-btn {
+    @apply py-3 px-6 rounded-lg text-green-500 text-center font-semibold sm:w-1/2 w-[90%] -bottom-5 absolute mx-auto right-0 left-0 flex justify-center items-center gap-3;
+  }
+
+  .cta {
+    @apply w-full flex items-center md:flex-row flex-col sm:mt-16 mt-8 gap-7;
+  }
+
+  .cta-text {
+    @apply text-black font-extrabold flex-1 text-3xl max-md:text-center;
+  }
+}
+
+.logo {
+  border-radius: 8.889px;
+  background: #fff;
+  box-shadow: 0px 10px 35px -4px rgba(67, 83, 255, 0.15),
+    0px 1.5px 4px -1px rgba(67, 83, 255, 0.2);
+}
+
+/* Neo Brutalism */
+.neo-brutalism-green {
+  background: rgb(34 197 94);
+  position: relative;
+  border-radius: 10px;
+  border: #02d158;
+  box-shadow: 0.6vmin 0.6vmin #02d158, 1vmin 1vmin #02d158, 1vmin 1vmin #02d158,
+    0.65vmin 1vmin #02d158, 1vmin 0.65vmin #02d158;
+}
+
+.neo-brutalism-white {
+  background: #fff;
+  border: #fff;
+  box-shadow: 0.6vmin 0.6vmin #fff, 1vmin 1vmin #d2e4ff, 1vmin 1vmin #d2e4ff,
+    0.65vmin 1vmin #d2e4ff, 1vmin 0.65vmin #d2e4ff;
 }
